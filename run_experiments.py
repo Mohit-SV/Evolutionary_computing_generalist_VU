@@ -1,6 +1,6 @@
 import os
 import sys
-import train_specialist
+import train_generalist
 from LinePlotter import generateLinePlots
 import config as C
 import time
@@ -16,7 +16,7 @@ s = time.time()
 for cfg in cfg_names:
     cfg_object = getattr(C, cfg)
     for run in range(cfg_object.run):
-        os.system(f'python train_specialist.py --cfg_name {cfg} --run {run+1}')
+        os.system(f'python train_generalist.py --cfg_name {cfg} --run {run+1}')
     generateLinePlots(cfg_object, out_dir=out_dir)
 t = time.time()
 print('Time taken to run all experiments', t-s)
